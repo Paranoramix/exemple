@@ -378,11 +378,11 @@ void setup() {
         Serial.println("Battery: " + String(ESP.getVcc() / 1000.0));
 
 
-        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId()) + "&cmd=temperature&value=" + String(sensorValues.temperature));
-        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId()) + "&cmd=humidity&value=" + String(sensorValues.humidity));
-        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId()) + "&cmd=pressure&value=" + String(sensorValues.pressure / 100.0));
-        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId()) + "&cmd=battery&value=" + String(ESP.getVcc() / 1000.0));
-        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId()) + "&cmd=time&value=" + String(millis() / 1000.0));
+        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId(), HEX) + "&cmd=temperature&value=" + String(sensorValues.temperature));
+        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId(), HEX) + "&cmd=humidity&value=" + String(sensorValues.humidity));
+        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId(), HEX) + "&cmd=pressure&value=" + String(sensorValues.pressure / 100.0));
+        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId(), HEX) + "&cmd=battery&value=" + String(ESP.getVcc() / 1000.0));
+        sendGETRequest("http://10.3.141.1:8121/device=Sensor&taskid=" + String(ESP.getChipId(), HEX) + "&cmd=time&value=" + String(millis() / 1000.0));
 
         ledBlink(DATA_SENT);
 
